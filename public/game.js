@@ -1,3 +1,12 @@
+let playerName = localStorage.getItem("playerName");
+
+if (!playerName) {
+  playerName = prompt("What is your name?");
+  if (!playerName) playerName = "Player";
+  localStorage.setItem("playerName", playerName);
+}
+
+
 
 let playerName = "";
 
@@ -120,6 +129,24 @@ const feedbackEl = document.getElementById("feedback");
    LOAD QUESTIONS
 ====================== */
 async function loadQuestions(levelId = 1) {
+
+questionEl.textContent = `Hi ${playerName}! Get ready 🎯`;
+
+function enterWorld(worldName, startLevel) {
+  alert(`Hi ${playerName}, welcome to ${worldName.replace('-', ' ')}!`);
+  document.getElementById("map").style.display = "none";
+  document.getElementById("game").style.display = "block";
+  currentLevel = startLevel;
+  loadQuestions(currentLevel);
+}
+
+let progress = JSON.parse(localStorage.getItem("progress")) || {
+  score: 0,
+  completedLevels: [],
+};
+
+
+
   try {
     const res = await fetch(`${API_BASE}/questions?level_id=${levelId}`);
     questions = await res.json();
@@ -175,6 +202,8 @@ submitBtn.addEventListener("click", async () => {
 
     if (data.correct) {
       score += 10;
+      progress.score = score;
+      localStorage.setItem("progress", JSON.stringify(progress));
       feedbackEl.textContent = "✅ Correct!";
       feedbackEl.style.color = "green";
 
@@ -201,6 +230,11 @@ submitBtn.addEventListener("click", async () => {
    NEXT QUESTION
 ====================== */
 function nextQuestion() {
+
+   progress.completedLevels.push(currentLevel);
+   localStorage.setItem("progress", JSON.stringify(progress));
+   scoreEl.textContent = `Score: ${score} | Levels completed: ${progress.completedLevels.length}`;
+
   currentIndex++;
 
   if (currentIndex >= questions.length) {
