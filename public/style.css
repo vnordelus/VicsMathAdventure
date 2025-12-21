@@ -1,78 +1,106 @@
-/* Space Galaxy theme - modern & animated */
-:root{
-  --bg1:#020926; --bg2:#07143a; --accent:#00f0ff; --accent2:#8a2be2;
-  --glass: rgba(255,255,255,0.03);
-  --card: rgba(255,255,255,0.04);
+* {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial}
-#space-bg{
-  position:fixed;inset:0;background:
-    radial-gradient(ellipse at 20% 20%, rgba(0,150,255,0.06) 0, transparent 15%),
-    radial-gradient(ellipse at 80% 70%, rgba(138,43,226,0.06) 0, transparent 18%),
-    linear-gradient(180deg,var(--bg1),var(--bg2));
-  z-index:-3;overflow:hidden;
-}
-.wrap{max-width:1100px;margin:18px auto;padding:12px}
-
-.top{display:flex;justify-content:space-between;align-items:center;color:#cfeeff}
-.title h1{margin:0;font-size:22px;color:var(--accent)}
-.subtitle{font-size:12px;color:#9fdfff}
-
-.hud{display:flex;gap:14px;align-items:center;font-weight:700}
-
-.game-area{display:flex;gap:18px;margin-top:12px}
-.left-panel{width:260px;display:flex;flex-direction:column;gap:12px}
-.center-panel{flex:1}
-
-.card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 40px rgba(0,0,0,0.6)}
-.question{font-size:28px;font-weight:700;color:#e6fbff;text-shadow:0 6px 22px rgba(0,160,255,0.06)}
-.subhint{font-size:13px;color:#d0f7ff;margin-top:8px}
-
-.avatar img{width:140px;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,0.6);transition:transform .25s}
-.power-bar{height:16px;border-radius:10px;background:#111;border:1px solid rgba(255,255,255,0.03);overflow:hidden;margin-top:6px}
-#powerFill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#00ffb8);transition:width .35s ease}
-
-.input-row{display:flex;gap:8px;margin-top:12px;align-items:center}
-input[type="text"], input[type="number"]{
-  padding:12px;border-radius:10px;border:none;width:68%;font-size:18px;background:rgba(255,255,255,0.03);color:#fff;outline:none;text-align:center
-}
-button.big{padding:12px 18px;border-radius:10px;background:linear-gradient(180deg,var(--accent),#00c3ff);border:none;color:#001;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(0,160,255,0.12)}
-button.big:hover{transform:translateY(-4px);}
-
-.feedback{margin-top:10px;font-size:16px;height:26px}
-.lives,.streak{font-weight:700;color:#fff}
-
-.controls label{display:block;color:#cfeeff;margin-bottom:6px;font-size:13px}
-.small{padding:8px;border-radius:8px;background:#111;border:1px solid rgba(255,255,255,0.04);color:#cfeeff}
-
-.achievements{margin-top:6px;background:transparent;padding:10px;border-radius:10px}
-.achievements ul{margin:0;padding-left:18px;color:#bff}
-
-.bottom{display:flex;justify-content:space-between;margin-top:12px;color:#cfeeff}
-
-#confettiCanvas{position:relative;height:0}
-
-/* Animations */
-@keyframes popIn {0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
-.card, .avatar img {animation: popIn .35s ease}
-
-.correct{color:#8fffdf;font-weight:800;animation:popIn .25s}
-.wrong{color:#ff9fa3;font-weight:800;animation:popIn .25s}
-
-/* responsive */
-@media(max-width:900px){
-  .game-area{flex-direction:column}
-  .left-panel{width:100%;order:2}
-  .center-panel{order:1}
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  background: linear-gradient(#a1c4fd, #c2e9fb);
 }
 
-.map-location {
-  display: block;
-  margin: 10px auto;
-  padding: 15px;
-  width: 250px;
-  font-size: 18px;
+/* Shared screen behavior */
+.screen {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* ======================
+   WELCOME SCREEN
+====================== */
+#welcome-screen {
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-card {
+  background: white;
+  padding: 40px;
+  width: 320px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.welcome-card h1 {
+  margin-bottom: 10px;
+}
+
+.welcome-card p {
+  color: #555;
+}
+
+.welcome-card input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.welcome-card button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ff9800;
+  color: white;
   cursor: pointer;
 }
+
+.welcome-card button:hover {
+  background: #fb8c00;
+}
+
+/* ======================
+   TOPICS SCREEN
+====================== */
+#topics-screen {
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+#topics-screen h2 {
+  margin-bottom: 30px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.topic-btn {
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  box-shadow: 0 6px 0 #388e3c;
+}
+
+.topic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #388e3c;
+}
+
