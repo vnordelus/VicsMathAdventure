@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vic's Math Adventure — Space Galaxy</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vic's Math Adventure — Space Galaxy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- WELCOME SCREEN -->
+  <!-- ======================
+       WELCOME SCREEN
+  ======================= -->
   <section id="welcome-screen" class="screen active">
     <div class="welcome-card">
       <h1>🌟 Vic’s Math Adventure 🌟</h1>
@@ -26,19 +28,72 @@
     </div>
   </section>
 
-  <!-- TOPIC SELECTION SCREEN -->
+  <!-- ======================
+       TOPICS SCREEN
+  ======================= -->
   <section id="topics-screen" class="screen">
     <h2 id="welcomePlayer"></h2>
 
     <div class="topics-grid">
-      <button class="topic-btn">➕ Addition</button>
-      <button class="topic-btn">➖ Subtraction</button>
-      <button class="topic-btn">✖️ Multiplication</button>
-      <button class="topic-btn">➗ Division</button>
-      <button class="topic-btn">🍰 Fractions</button>
-      <button class="topic-btn">📊 Percentages</button>
+      <button class="topic-btn" data-topic="addition">➕ Addition</button>
+      <button class="topic-btn" data-topic="subtraction">➖ Subtraction</button>
+      <button class="topic-btn" data-topic="multiplication">✖️ Multiplication</button>
+      <button class="topic-btn" data-topic="division">➗ Division</button>
+
+     <button class="topic-btn" data-topic="fractions">🍰 Fractions</button>
+     <button class="topic-btn" data-topic="percentages">📊 Percentages</button>
+
+     <button class="topic-btn" data-topic="geometry">📐 Geometry</button>
+     <button class="topic-btn" data-topic="measurement">📏 Measurement</button>
+
+     <button class="topic-btn" data-topic="word-problems">📖 Word Problems</button>
+     <button class="topic-btn" data-topic="statistics">📈 Statistics & Probability</button>
+
+     <button class="topic-btn" data-topic="time-money">⏰ Time & Money</button>
+     <button class="topic-btn" data-topic="logic">🧠 Logic & Patterns</button>
+
     </div>
   </section>
+  <!-- LESSON SCREEN -->
+ <section id="lesson-screen" class="screen">
+  <div class="lesson-card">
+    <h2 id="lesson-title"></h2>
+
+    <p id="lesson-intro"></p>
+
+    <div id="lesson-content"></div>
+
+    <div id="lesson-examples"></div>
+
+    <button id="start-quiz-btn">📝 Start Quiz</button>
+  </div>
+</section>
+
+
+
+  <section id="game-screen" class="screen">
+     <h2 id="game-title"></h2>
+
+      <div class="score-panel">
+      ⭐ Stars: <span id="stars">0</span> |
+      🧮 Score: <span id="score">0</span>
+     </div>
+
+     <p id="question-text">Question will appear here</p>
+
+     <input id="answer-input" type="text" placeholder="Your answer" />
+    <button id="submit-answer">Submit</button>
+
+     <p id="feedback"></p>
+</section>
 
   <script src="game.js"></script>
 </body>
+
+<footer class="version">
+  v.1.2.0 * Math Adventure
+</footer>
+  
+
+
+</html>

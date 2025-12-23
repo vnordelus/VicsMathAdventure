@@ -1,0 +1,50 @@
+{
+  "topic": "Addition",
+  "icon": "➕",
+  "levels": [
+    {
+      "id": "counting",
+      "title": "Counting Objects",
+      "lesson": {
+        "intro": "Counting helps us know how many things we have.",
+        "content": [
+          "Look at each object carefully.",
+          "Count one by one.",
+          "Say the number out loud."
+        ],
+        "examples": [
+          "🍎🍎🍎 = 3 apples",
+          "⭐ ⭐ ⭐ ⭐ = 4 stars"
+        ]
+      },
+      "quiz": [
+        { "q": "How many stars? ⭐⭐⭐", "a": "3" },
+        { "q": "How many apples? 🍎🍎🍎🍎", "a": "4" }
+      ]
+    },
+
+    {
+      "id": "single-digit",
+      "title": "Adding Single Digits",
+      "lesson": {
+        "intro": "Adding means putting numbers together.",
+        "content": [
+          "Start with the first number.",
+          "Count forward using the second number."
+        ],
+        "examples": [
+          "3 + 2 = 5",
+          "4 + 3 = 7"
+        ]
+      },
+      "quiz": [
+        { "q": "5 + 3 = ?", "a": "8" },
+        { "q": "6 + 2 = ?", "a": "8" }
+      ]
+    }
+  ],
+  "exam": [
+    { "q": "4 + 4 = ?", "a": "8" },
+    { "q": "7 + 2 = ?", "a": "9" }
+  ]
+}

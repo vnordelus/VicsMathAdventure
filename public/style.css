@@ -1,12 +1,120 @@
-* {
-  box-sizing: border-box;
+
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
+
 body {
-  margin: 0;
-  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
   background: linear-gradient(#a1c4fd, #c2e9fb);
 }
+
+/* ======================
+   LESSON SCREEN
+====================== */
+#lesson-screen {
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#fdfbfb, #ebedee);
+}
+
+.lesson-card {
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+.lesson-card h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#lesson-intro {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#lesson-content p {
+  background: #e3f2fd;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  animation: slideUp 0.4s ease;
+}
+
+#lesson-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.example-card {
+  flex: 1 1 45%;
+  background: #fff3e0;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#start-quiz-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+#start-quiz-btn:hover {
+  background: #43a047;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+#topics-screen {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ ADD THIS */
+  padding-top: 40px;
+}
+
+#game-screen {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+.score-panel {
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
 
 /* Shared screen behavior */
 .screen {
@@ -73,7 +181,8 @@ body {
 #topics-screen {
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  justify-content: center;
+  padding-top: 0;
 }
 
 #topics-screen h2 {
@@ -103,4 +212,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 0 #388e3c;
 }
+
+
+
 
