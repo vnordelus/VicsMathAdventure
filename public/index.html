@@ -35,65 +35,68 @@
     <h2 id="welcomePlayer"></h2>
 
     <div class="topics-grid">
-      <button class="topic-btn" data-topic="addition">➕ Addition</button>
+      <button class="topic-btn" onclick="startAdditionLesson()">➕ Addition</button>
       <button class="topic-btn" data-topic="subtraction">➖ Subtraction</button>
       <button class="topic-btn" data-topic="multiplication">✖️ Multiplication</button>
       <button class="topic-btn" data-topic="division">➗ Division</button>
 
-     <button class="topic-btn" data-topic="fractions">🍰 Fractions</button>
-     <button class="topic-btn" data-topic="percentages">📊 Percentages</button>
-
-     <button class="topic-btn" data-topic="geometry">📐 Geometry</button>
-     <button class="topic-btn" data-topic="measurement">📏 Measurement</button>
-
-     <button class="topic-btn" data-topic="word-problems">📖 Word Problems</button>
-     <button class="topic-btn" data-topic="statistics">📈 Statistics & Probability</button>
-
-     <button class="topic-btn" data-topic="time-money">⏰ Time & Money</button>
-     <button class="topic-btn" data-topic="logic">🧠 Logic & Patterns</button>
-
+    
     </div>
   </section>
-  <!-- LESSON SCREEN -->
- <section id="lesson-screen" class="screen">
+
+  <!-- ======================
+     LESSON SCREEN
+====================== -->
+<section id="lesson-screen" class="screen">
   <div class="lesson-card">
+
     <h2 id="lesson-title"></h2>
 
-    <p id="lesson-intro"></p>
 
-    <div id="lesson-content"></div>
 
-    <div id="lesson-examples"></div>
 
-    <button id="start-quiz-btn">📝 Start Quiz</button>
+    <!-- Animated visuals -->
+    <div class="lesson-visuals" id="lesson-visuals">
+      <!-- Items injected by JS -->
+    </div>
+
+    <!-- Lesson narration text -->
+    <p id="lesson-text"></p>
+   <button id="lesson-next-btn">Next ➡️</button>
+
+
   </div>
 </section>
 
 
+<section id="game-screen" class="screen">
+  <div class="lesson-card">
 
-  <section id="game-screen" class="screen">
-     <h2 id="game-title"></h2>
+    <h2 id="game-title"></h2>
 
-      <div class="score-panel">
+    <div class="score-panel">
       ⭐ Stars: <span id="stars">0</span> |
       🧮 Score: <span id="score">0</span>
-     </div>
+    </div>
 
-     <p id="question-text">Question will appear here</p>
+    <p id="question-text"></p>
 
-     <input id="answer-input" type="text" placeholder="Your answer" />
+    <input id="answer-input" type="number" placeholder="Your answer" />
+
     <button id="submit-answer">Submit</button>
 
-     <p id="feedback"></p>
+    <p id="feedback"></p>
+
+  </div>
 </section>
 
   <script src="game.js"></script>
-</body>
 
-<footer class="version">
+
+  <footer class="version">
   v.1.2.0 * Math Adventure
-</footer>
+  </footer>
   
-
+</body>
 
 </html>

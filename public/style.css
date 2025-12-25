@@ -9,111 +9,162 @@ body {
   background: linear-gradient(#a1c4fd, #c2e9fb);
 }
 
+#game-screen {
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #c2e9fb, #fbc2eb);
+}
+
+.score-panel {
+  margin: 10px 0 20px;
+  font-size: 16px;
+}
+
+
+
+.lesson-card {
+  background: white;
+  padding: 30px;
+  width: 400px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+
 /* ======================
    LESSON SCREEN
 ====================== */
 #lesson-screen {
+  display: none;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#fdfbfb, #ebedee);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c2e9fb, #fbc2eb);
+  padding: 20px;
 }
 
+#lesson-screen.active {
+  display: flex;
+}
+
+/* ======================
+   LESSON CARD
+====================== */
 .lesson-card {
   background: white;
-  width: 90%;
-  max-width: 700px;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  animation: fadeIn 0.6s ease;
-}
-
-.lesson-card h2 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#lesson-intro {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-#lesson-content p {
-  background: #e3f2fd;
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  animation: slideUp 0.4s ease;
-}
-
-#lesson-examples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.example-card {
-  flex: 1 1 45%;
-  background: #fff3e0;
-  padding: 12px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 18px;
-}
-
-#start-quiz-btn {
-  margin-top: 25px;
   width: 100%;
-  padding: 15px;
+  max-width: 520px;
+  padding: 32px 28px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+}
+
+/* Title */
+.lesson-card h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* ======================
+   LESSON VISUALS LAYOUT
+====================== */
+.lesson-visuals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item {
+  font-size: 48px;
+  animation: popIn 0.4s ease;
+}
+
+.operator {
+  font-size: 40px;
+  margin: 0 10px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Individual fruit items */
+.lesson-visuals .item {
+  font-size: 36px;
+}
+
+/* Plus sign */
+.lesson-visuals .plus {
+  font-size: 32px;
+  margin: 0 10px;
+}
+
+.lesson-visuals .item {
+  font-size: 36px;
+  transition: transform 0.2s ease;
+}
+
+.lesson-visuals .item:hover {
+  transform: scale(1.2) rotate(-5deg);
+
+}
+
+
+
+.lesson-visuals img {
+  width: 200px;
+  max-width: 100%;
+}
+
+/* Question */
+.lesson-question {
   font-size: 18px;
+  margin: 16px 0;
+}
+
+/* Input */
+.lesson-card input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Submit */
+.lesson-card button {
+  margin-top: 16px;
+  padding: 14px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 14px;
   border: none;
-  border-radius: 12px;
   background: #4caf50;
   color: white;
   cursor: pointer;
 }
 
-#start-quiz-btn:hover {
+.lesson-card button:hover {
   background: #43a047;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.97); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-#topics-screen {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* ✅ ADD THIS */
-  padding-top: 40px;
-}
-
-#game-screen {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 15px;
-}
-
-.score-panel {
-  background: #fff;
-  padding: 10px 16px;
-  border-radius: 12px;
+/* Feedback */
+#feedback {
+  margin-top: 12px;
   font-size: 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
 
 
 /* Shared screen behavior */
@@ -213,6 +264,68 @@ body {
   box-shadow: 0 8px 0 #388e3c;
 }
 
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-12px); }
+  60%  { transform: translateY(0); }
+}
 
+@keyframes glow {
+  0%   { box-shadow: 0 0 0 rgba(76,175,80,0); }
+  50%  { box-shadow: 0 0 25px rgba(76,175,80,0.7); }
+  100% { box-shadow: 0 0 0 rgba(76,175,80,0); }
+}
+
+.correct-animate .item {
+  animation: bounce 0.4s ease;
+}
+
+.correct-card {
+  animation: glow 0.6s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.wrong-animate {
+  animation: shake 0.4s ease;
+}
+
+.wrong-flash {
+  background: #ffebee !important;
+}
+
+
+.lesson-visuals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+.item {
+  animation: popIn 0.4s ease forwards;
+}
+
+.operator {
+  font-size: 36px;
+  margin: 0 10px;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
 
