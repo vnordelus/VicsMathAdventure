@@ -1,90 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vic's Math Adventure — Space Galaxy</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vic's Math Adventure — Space Galaxy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-   <div id="startScreen">
-  <h1>🧮 Vic’s Math Adventure</h1>
-  <p>Enter your name to begin:</p>
-  <input id="playerNameInput" placeholder="Your name" />
-  <button id="startBtn">Start Adventure</button>
-</div>
+  <!-- ======================
+       WELCOME SCREEN
+  ======================= -->
+  <section id="welcome-screen" class="screen active">
+    <div class="welcome-card">
+      <h1>🌟 Vic’s Math Adventure 🌟</h1>
+      <p>Enter your name to begin your journey</p>
 
-<div id="mapScreen" style="display:none;"></div>
+      <input
+        id="playerNameInput"
+        type="text"
+        placeholder="Your name"
+        autocomplete="off"
+      />
 
-<div id="gameScreen" style="display:none;">
-  <!-- your existing game UI -->
-</div>
+      <button id="enterWorldBtn">🚀 Enter World</button>
+    </div>
+  </section>
 
-  <div id="space-bg"></div>
+  <!-- ======================
+       TOPICS SCREEN
+  ======================= -->
+  <section id="topics-screen" class="screen">
+    <h2 id="welcomePlayer"></h2>
 
-  <main class="wrap">
-    <header class="top">
-      <div class="title">
-        <h1>Vic's Math Adventure</h1>
-        <div class="subtitle">Superhero Academy — Space Galaxy</div>
-      </div>
+    <div class="topics-grid">
+      <button class="topic-btn" onclick="startAdditionLesson()">➕ Addition</button>
+      <button class="topic-btn" data-topic="subtraction">➖ Subtraction</button>
+      <button class="topic-btn" data-topic="multiplication">✖️ Multiplication</button>
+      <button class="topic-btn" data-topic="division">➗ Division</button>
 
-      <div class="hud">
-        <div class="score">Score: <span id="score">0</span></div>
-        <div class="level">Level: <span id="level">1</span></div>
-        <div class="timer">Time: <span id="timer">--</span>s</div>
-      </div>
-    </header>
+    
+    </div>
+  </section>
 
-    <section class="game-area">
-      <aside class="left-panel">
-        <div class="avatar">
-          <img id="avatarImg" src="https://i.imgur.com/2yRk7pA.png" alt="Captain Calculator">
-        </div>
+  <!-- ======================
+     LESSON SCREEN
+====================== -->
+<section id="lesson-screen" class="screen">
+  <div class="lesson-card">
 
-        <div class="power">
-          <div class="label">Power</div>
-          <div id="powerBar" class="power-bar"><div id="powerFill"></div></div>
-          <div class="streak">Streak: <span id="streak">0</span></div>
-          <div class="lives">Lives: <span id="lives">3</span></div>
-        </div>
+    <h2 id="lesson-title"></h2>
 
-        <div class="controls">
-          <label><input id="soundToggle" type="checkbox" checked> Sound</label>
-          <label><input id="musicToggle" type="checkbox"> Music</label>
-          <button id="resetBtn" class="small">Reset Progress</button>
-        </div>
 
-        <div class="achievements">
-          <h4>Achievements</h4>
-          <ul id="achList"></ul>
-        </div>
-      </aside>
 
-      <div class="center-panel">
-        <div id="questionCard" class="card">
-          <div id="phase" class="phase">Mission</div>
-          <div id="question" class="question">Loading...</div>
-          <div id="subhint" class="subhint"></div>
-        </div>
 
-        <div class="input-row">
-          <input id="answerInput" type="text" inputmode="decimal" placeholder="Type answer (fractions, decimals allowed)">
-          <button id="submitBtn" class="big">Deploy Answer ⚡</button>
-        </div>
+    <!-- Animated visuals -->
+    <div class="lesson-visuals" id="lesson-visuals">
+      <!-- Items injected by JS -->
+    </div>
 
-        <div class="feedback" id="feedback">Solve missions to power up!</div>
-        <div id="confettiCanvas"></div>
-      </div>
-    </section>
+    <!-- Lesson narration text -->
+    <p id="lesson-text"></p>
+   <button id="lesson-next-btn">Next ➡️</button>
 
-    <footer class="bottom">
-      <div class="highscore">High Score: <span id="highScore">0</span></div>
-      <div class="boss">Boss Round in <span id="bossCountdown">10</span> missions</div>
-    </footer>
-  </main>
-<script type="module" src="/game.js"></script>
 
+  </div>
+</section>
+
+
+<section id="game-screen" class="screen">
+  <div class="lesson-card">
+
+    <h2 id="game-title"></h2>
+
+    <div class="score-panel">
+      ⭐ Stars: <span id="stars">0</span> |
+      🧮 Score: <span id="score">0</span>
+    </div>
+
+    <p id="question-text"></p>
+
+    <input id="answer-input" type="number" placeholder="Your answer" />
+
+    <button id="submit-answer">Submit</button>
+
+    <p id="feedback"></p>
+
+  </div>
+</section>
+
+  <script src="game.js"></script>
+
+
+  <footer class="version">
+  v.1.2.0 * Math Adventure
+  </footer>
+  
 </body>
+
 </html>
